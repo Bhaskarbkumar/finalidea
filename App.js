@@ -1,17 +1,22 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet, SafeAreaView} from 'react-native';
+import Signin from './SignIn'
+import Signup from './Signup';
+import Navigation from './navigation/index';
 
 const YourApp = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <Text>Try editing me! 🎉</Text>
-    </View>
+    <SafeAreaView style={StyleSheet.root}>
+      <Navigation />
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  root:{
+    flex: 1, 
+    backgroundColor: '#e0ffff',
+  },
+});
 
 export default YourApp;
