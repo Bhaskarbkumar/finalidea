@@ -1,14 +1,22 @@
-import React from 'react'
+
+import * as React from 'react';
 import {View,Text,Image, StyleSheet, TextInput ,Button} from 'react-native'
 import Signup from './Signup';
-import {useNavigation} from '@react-navigation/native'
+import { useNavigation , useNavigationContainerRef } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Navi from './navigation';
 
-const Signin = () => {
+
+const SignIn = () => {
+
+      const navigation = useNavigation();
+       //const navigationRef = useNavigationContainerRef();
 
        const [username , onChangeText ]= React.useState('');
        const [password , onChangeText2]=  React.useState('');
 
-       const navigation = useNavigation();
+    
 
        return(
         <View style = {styles.root}>
@@ -33,7 +41,7 @@ const Signin = () => {
        <Button 
           style = {styles.icons}
           title ="Register Now "
-          onPress={() => navigation.navigate('signup')}
+          onPress={() => navigation.navigate('Signup')}
           />
         </View>
        )
@@ -72,4 +80,4 @@ const styles = StyleSheet.create({
        }
 });
 
-export default Signin;
+export default SignIn;
