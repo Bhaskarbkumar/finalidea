@@ -2,14 +2,15 @@ import React from 'react';
 import {Text, View, StyleSheet, SafeAreaView} from 'react-native';
 import SignIn from './SignIn'
 import Signup from './Signup';
-import Navi from './navigation';
+import Navi from './navigation/ind';
 import Profile from './Profile';
+import Tabs from './navigation/tabs';
 
 
-const YourApp = () => {
+const App = () => {
   return (
     <SafeAreaView style={styles.root}>
-      <SignIn style={styles.profil} />
+      <Tabs style={styles.profil} />
     </SafeAreaView>
   );
 };
@@ -17,7 +18,7 @@ const YourApp = () => {
 const styles = StyleSheet.create({
   root:{
     flex: 1, 
-    backgroundColor: 'grey',
+    backgroundColor: 'black',
   },
   profil:{
     backgroundColor: 'black'
@@ -25,4 +26,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default YourApp;
+export default App;

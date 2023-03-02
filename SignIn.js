@@ -1,22 +1,23 @@
 
 import * as React from 'react';
-import {View,Text,Image, StyleSheet, TextInput ,Button} from 'react-native'
+import {View,Text,Image, StyleSheet, TextInput ,Button,props} from 'react-native'
 import Signup from './Signup';
-import { useNavigation , useNavigationContainerRef } from '@react-navigation/native';
+import { useNavigation , useNavigationContainerRef  } from '@react-navigation/native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Navi from './navigation';
+import Profile from './Profile';
 
+//export const navigationRef = createNavigationContainerRef()
 
 const SignIn = () => {
 
-      const navigation = useNavigation();
-       //const navigationRef = useNavigationContainerRef();
+      //const navigation = useNavigation();
+      ///const { navigate } = this.props.navigation;
+   
 
        const [username , onChangeText ]= React.useState('');
        const [password , onChangeText2]=  React.useState('');
 
-    
 
        return(
         <View style = {styles.root}>
@@ -41,7 +42,7 @@ const SignIn = () => {
        <Button 
           style = {styles.icons}
           title ="Register Now "
-          onPress={() => navigation.navigate('Signup')}
+         onPress={() => navigate('Signup')}
           />
         </View>
        )

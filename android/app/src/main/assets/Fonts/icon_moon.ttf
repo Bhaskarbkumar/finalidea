@@ -1,0 +1,8 @@
+import icoMoonConfig from './config.json';
+import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
+
+export const CustomIcon = createIconSetFromIcoMoon(
+  iconMoonConfig,
+  'Icomoon',
+  'Icomoon.ttf',
+);

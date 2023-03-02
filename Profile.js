@@ -1,19 +1,38 @@
 import React from "react";
-import {Text,View,Image,  Button, StyleSheet} from 'react-native';
+import {Text,View,Image,  Button, StyleSheet, TouchableOpacity} from 'react-native';
+import NextProfile from './NextProfile';
 
 const Profile = () => {
+
+    const [profilename , setText ]= React.useState('');
 
     return(
         <View >
             <Text style={styles.head}>Who's Reading ?</Text>
-            <Image source={require('./pro.png')} style={styles.logo} />
+        <TouchableOpacity>
+            <Image 
+                 source={require('./pro.png')}
+                 style={styles.logo}
+                  />
+            </TouchableOpacity>
             <Text style={styles.text}>Bharath</Text> 
-            <Image source={require('./addprofile.png')} style={styles.addprofile} /> 
-            <Text style={styles.text}>Add profile</Text>        
+         <TouchableOpacity>
+            <Image 
+                source={require('./addprofile.png')}
+                style={styles.addprofile} />  
+                
+         </TouchableOpacity>
+            <Text style={styles.text}>Add profile</Text>    
         </View>
     )
 
 }
+
+ function nextIcon() {
+        console.log('profilename');
+ }
+
+
 
 const styles = StyleSheet.create({
     
@@ -28,7 +47,8 @@ const styles = StyleSheet.create({
     },
     logo: {
         marginLeft: 120,
-        marginVertical: 10
+        marginVertical: 10,
+        resizeMode: 'contain'
     },
     text:{
         color: 'white',
@@ -43,6 +63,9 @@ const styles = StyleSheet.create({
     text2:{
        marginBottom: 120,
        marginLeft: 10
+    },
+    nextIcon:{
+        marginLeft: 160
     }
 
 

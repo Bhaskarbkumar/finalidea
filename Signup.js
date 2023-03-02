@@ -1,13 +1,18 @@
 import React from 'react'
 import {View,Text,Image, StyleSheet, TextInput ,Button} from 'react-native'
+import { useNavigation , useNavigationContainerRef  } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Signup = () => {
+    //const navigation = useNavigation();
+const Signup = (navigation) => {
 
     const [Fullname , onChangeText ]= React.useState('');
     const [username , onChangeText2 ]= React.useState('');
     const [Password , onChangeText3 ]= React.useState('');
     const [Emailid , onChangeText4 ]= React.useState('');
 
+    //const navigation = useNavigation();
 
     return(
      <View style={styles.root}>
@@ -38,7 +43,9 @@ const Signup = () => {
         value={Emailid}
       />
       <Button style={styles.clicks} title='Register' />
-      <Button style={styles.clicks} title='<Go Back to Login' />
+      <Button style={styles.clicks} 
+        title='<Go Back to Login'
+        onPress={() =>  navigate('SignIn')} />
      </View>
     )
 }
