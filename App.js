@@ -5,12 +5,14 @@ import Signup from './Signup';
 import Navi from './navigation/ind';
 import Profile from './Profile';
 import Tabs from './navigation/tabs';
+//import SearchBar from './Searchindex';
+import SearchBar from './Searchbar';
 
 
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
-      <Tabs style={styles.profil} />
+     <Tabs style={styles.profil} />
     </SafeAreaView>
   );
 };
