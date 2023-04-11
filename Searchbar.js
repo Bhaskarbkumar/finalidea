@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TextInput, View, StyleSheet,Button,Text } from 'react-native';
+import { TextInput, View, StyleSheet,Button,Text,Image } from 'react-native';
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
@@ -47,9 +47,15 @@ const SearchBar = () => {
           title ="Log in "
           onPress={useEffect}
           /> 
+           {loading? (<Text>Loading ..</Text>) : (
+             books.map(book => (
+              <img src= {book.volumeInfo.imageLinks.thumbnail} alt ={book.title}/>
+             ))
+      )}
+
        {loading? (<Text>Loading ..</Text>) : (
              
-             <img src= "http://books.google.com/books/content?id=r8q2DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt ={book.title}/>
+             <Image source=  {{uri: 'http://books.google.com/books/content?id=r8q2DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'}} alt ={book.title}/>
             
       )}
             

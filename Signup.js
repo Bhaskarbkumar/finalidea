@@ -3,16 +3,30 @@ import {View,Text,Image, StyleSheet, TextInput ,Button} from 'react-native'
 import { useNavigation , useNavigationContainerRef  } from '@react-navigation/native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { auth } from './Firebase/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
     //const navigation = useNavigation();
-const Signup = (navigation) => {
+const Signup = () => {
 
     const [Fullname , onChangeText ]= React.useState('');
     const [username , onChangeText2 ]= React.useState('');
     const [Password , onChangeText3 ]= React.useState('');
     const [Emailid , onChangeText4 ]= React.useState('');
 
-    //const navigation = useNavigation();
+    const navigation = useNavigation();
+
+    const signUp = (e) => {
+        e.preventDefault();
+        createUserWithEmailAndPassword(auth , Emailid , Password)
+         .then(userCredential => {
+           console.log(userCredential);
+         })
+         .catch((error) => {
+          console.log(error);
+         })
+ }
+
 
     return(
      <View style={styles.root}>
@@ -30,22 +44,22 @@ const Signup = (navigation) => {
         onChangeText={onChangeText2}
         value={username}
       />
-          <Text style={styles.creds}>Password:</Text>
-     <TextInput
-        style = {(styles.input)}
-        onChangeText={onChangeText3}
-        value={Password}
-      />
           <Text style={styles.creds}>Email ID:</Text>
      <TextInput
         style = {(styles.input)}
         onChangeText={onChangeText4}
         value={Emailid}
       />
-      <Button style={styles.clicks} title='Register' />
+          <Text style={styles.creds}>Password:</Text>
+     <TextInput
+        style = {(styles.input)}
+        onChangeText={onChangeText3}
+        value={Password}
+      />
+      <Button style={styles.clicks} title='Register' onPress= { signUp } />
       <Button style={styles.clicks} 
         title='<Go Back to Login'
-        onPress={() =>  navigate('SignIn')} />
+        onPress={() =>  navigation.navigate('SignIn')} />
      </View>
     )
 }

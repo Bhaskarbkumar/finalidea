@@ -2,31 +2,41 @@
 import * as React from 'react';
 import {View,Text,Image, StyleSheet, TextInput ,Button,props} from 'react-native'
 import Signup from './Signup';
-import { useNavigation , useNavigationContainerRef  } from '@react-navigation/native'
+import { useNavigation   } from '@react-navigation/native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Profile from './Profile';
+import { auth } from './Firebase/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
-//export const navigationRef = createNavigationContainerRef()
 
 const SignIn = () => {
 
-      //const navigation = useNavigation();
-      ///const { navigate } = this.props.navigation;
-   
+      const navigation = useNavigation();
 
-       const [username , onChangeText ]= React.useState('');
+       const [Email , onChangeText ]= React.useState('');
        const [password , onChangeText2]=  React.useState('');
 
+       const signIn = (e) => {
+              e.preventDefault();
+              signInWithEmailAndPassword(auth , Email , password)
+               .then(userCredential => {
+                 console.log(userCredential);
+                 navigation.navigate('Profile');
+               })
+               .catch((error) => {
+                console.log(error);
+               })
+       }
 
        return(
         <View style = {styles.root}>
        <Image source={require('./wise.png')} style ={(styles.logo)}/>
-       <Text style = {(styles.username)}> Username:</Text>
+       <Text style = {(styles.username)}> Email:</Text>
        <TextInput
         style = {(styles.input)}
         onChangeText={onChangeText}
-        value={username}
+        value={Email}
       />
        <Text style = {(styles.username)}> Password:</Text>
        <TextInput
@@ -38,11 +48,12 @@ const SignIn = () => {
        <Button
           style = {styles.icons}
           title ="Log in "
+          onPress= { signIn }
           />       
        <Button 
           style = {styles.icons}
           title ="Register Now "
-         onPress={() => navigate('Signup')}
+         onPress={() => navigation.navigate('Signup')}
           />
         </View>
        )
