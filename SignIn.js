@@ -21,7 +21,7 @@ const SignIn = () => {
               e.preventDefault();
               signInWithEmailAndPassword(auth , Email , password)
                .then(userCredential => {
-                 console.log(userCredential);
+                 //console.log(userCredential);
                  navigation.navigate('Profile');
                })
                .catch((error) => {
@@ -45,16 +45,12 @@ const SignIn = () => {
         secureTextEntry = {true}
         value={password}
       />
-       <Button
-          style = {styles.icons}
-          title ="Log in "
-          onPress= { signIn }
-          />       
-       <Button 
-          style = {styles.icons}
-          title ="Register Now "
-         onPress={() => navigation.navigate('Signup')}
-          />
+      <View style={{marginVertical: 10}}>
+             <Button  title="LOGIN" onPress= { Profile }  />
+         </View>
+        <View style={{marginVertical: 10}}>
+             <Button  title="REGISTER NOW" onPress={ navigation.navigate(Signup)} />
+          </View>
         </View>
        )
 }
@@ -82,12 +78,6 @@ const styles = StyleSheet.create({
               width: 300,
               margin: 12,
               borderWidth: 1,
-              marginVertical: 10
-       },
-       icons: {
-              height: 100,
-              padding: 50,
-              width: '100%',
               marginVertical: 10
        }
 });

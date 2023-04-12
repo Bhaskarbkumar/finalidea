@@ -56,10 +56,13 @@ const Signup = () => {
         onChangeText={onChangeText3}
         value={Password}
       />
-      <Button style={styles.clicks} title='Register' onPress= { signUp } />
-      <Button style={styles.clicks} 
-        title='<Go Back to Login'
-        onPress={() =>  navigation.navigate('SignIn')} />
+      <View style={{marginVertical: 10}}>
+             <Button  title="REGISTER"  onPress={ signUp}/>
+         </View>
+        <View style={{marginVertical: 10}}>
+             <Button  title="<GO BACK TO LOGIN" />
+          </View>
+
      </View>
     )
 }
@@ -67,7 +70,7 @@ const Signup = () => {
 const styles = StyleSheet.create({
     root: {
            alignItems:'center',
-           padding: 30,
+           padding: 10,
     },
     logo: {
            resizeMode:'contain',
@@ -90,11 +93,8 @@ const styles = StyleSheet.create({
         height: 40,
         width: 300,
         borderWidth: 1,
-        marginVertical: 8
+        marginVertical: 6
 
-    },
-    clicks:{
-        paddingBottom:30
     }
 
 })
