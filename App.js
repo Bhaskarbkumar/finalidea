@@ -16,9 +16,8 @@ const App = () => {
   return (
     <NavigationContainer>
        <Stack.Navigator>
-            <Stack.Screen name="SignIn"  component={SignIn} style={styles.profil} />
-            <Stack.Screen name="Signup"  component={Signup} />
-            <Stack.Screen name="Profile" component={Profile} />            
+
+            <Stack.Screen name="profile" component={Profile}  style={styles.profil}  />            
             </Stack.Navigator>
     </NavigationContainer>
   );
@@ -27,10 +26,10 @@ const App = () => {
 const styles = StyleSheet.create({
   root:{
     flex: 1, 
-    backgroundColor: 'white',
+    backgroundColor: 'black',
   },
   profil:{
-    backgroundColor: 'white'
+    backgroundColor: 'black'
 
   }
 });

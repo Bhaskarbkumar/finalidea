@@ -1,36 +1,73 @@
 import React from "react";
-import {Text,View,Image,  Button, StyleSheet, TouchableOpacity} from 'react-native';
-import NextProfile from './NextProfile';
+import {Text,View,Image,  Button, StyleSheet, TouchableOpacity,TextInput} from 'react-native';
+import { useNavigation   } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SearchBar from "./Searchbar";
+
+
 
 const Profile = () => {
+    const navigation = useNavigation();
 
     const [profilename , setText ]= React.useState('');
+    const [secondprofilename , setText1 ]= React.useState('');
+    const[imageClicked , setImageClicked] = React.useState(false);
+    const[secondImageClicked , setSecondImageClicked] = React.useState(false);
+    const [count , setCount] = React.useState(0);
+    const onPressAddProfile = () => {
+          setImageClicked(true)
+          setText('Ben Affleck')
+          setCount(count+1);
+          if (count==1) {
+            setSecondImageClicked(true) 
+            setText1('Matt Damon');  
+          } else {
+            
+          }
+    }
+
+    const imageClick = () => {
+        console.log('david');
+        navigation.navigate( SearchBar);
+    }
 
     return(
         <View >
             <Text style={styles.head}>Who's Reading ?</Text>
-        <TouchableOpacity>
-            <Image 
-                 source={require('./pro.png')}
-                 style={styles.logo}
-                  />
-            </TouchableOpacity>
-            <Text style={styles.text}>Bharath</Text> 
-         <TouchableOpacity>
+ 
+         <TouchableOpacity  onPress = { onPressAddProfile  }>
             <Image 
                 source={require('./addprofile.png')}
-                style={styles.addprofile} />  
-                
+                style={styles.addprofile} />
          </TouchableOpacity>
-            <Text style={styles.text}>Add profile</Text>    
-        </View>
+            <Text style={styles.text}>Add profile</Text>
+             {imageClicked== true && (
+                 <><TouchableOpacity   onPress = { imageClick }><Image
+                    source={require('./pro.png')}
+                    style={styles.logo}
+                   />
+                    </TouchableOpacity>
+                    <TextInput
+                        style={(styles.input)}
+                        onChangeText={setText}
+                        //secureTextEntry={true}
+                        value={profilename} /></>
+               )}
+      {secondImageClicked==true  &&(
+                    <><Image
+                    source={require('./secondp.png')}
+                    style={styles.logo1} />
+                    <TextInput
+                        style={(styles.input1)}
+                        onChangeText={setText1}
+                        //secureTextEntry={true}
+                        value={secondprofilename} /></>
+          )}
+          </View> 
     )
 
 }
-
- function nextIcon() {
-        console.log('profilename');
- }
 
 
 
@@ -40,36 +77,46 @@ const styles = StyleSheet.create({
         fontSize : 48,
         fontStyle: 'normal',
         alignItems:'center',
-        color:'white',
-        marginVertical: 70,
+        color:'black',
+        marginVertical: 20,
         marginLeft: 20
         //backgroundColor: 'orange'
     },
     logo: {
         marginLeft: 120,
-        marginVertical: 10,
+        marginVertical: 5,
         resizeMode: 'contain'
     },
+    input: {
+        marginLeft: 130,
+        //marginVertical: 2,
+        //resizeMode: 'contain'
+    },
     text:{
-        color: 'white',
+        color: 'black',
         marginLeft: 150,
-        marginVertical: 4
+        marginVertical: 10
     },
     addprofile: {
-        //marginVertical:80,
+        //marginVertical:10,
         marginLeft: 120,
         //marginBottom:50
     },
-    text2:{
-       marginBottom: 120,
-       marginLeft: 10
+     logo1: {
+        marginLeft: 120,
+        resizeMode: 'contain',
+        marginVertical: 10
     },
-    nextIcon:{
-        marginLeft: 160
+    input1: {
+        marginLeft: 120,
+        //resizeMode: 'contain',
+       // marginVertical: 10
     }
 
 
     
 })
+
+
 
 export default Profile;
