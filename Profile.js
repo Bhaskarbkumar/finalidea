@@ -3,7 +3,7 @@ import {Text,View,Image,  Button, StyleSheet, TouchableOpacity,TextInput} from '
 import { useNavigation   } from '@react-navigation/native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SearchBar from "./Searchbar";
+import { Tabs } from "antd";
 
 
 
@@ -29,8 +29,14 @@ const Profile = () => {
 
     const imageClick = () => {
         console.log('david');
+        navigation.navigate( Tabs);
+    }
+
+    const secondImageClick = () => {
+        console.log('russs');
         navigation.navigate( SearchBar);
     }
+
 
     return(
         <View >
@@ -55,9 +61,10 @@ const Profile = () => {
                         value={profilename} /></>
                )}
       {secondImageClicked==true  &&(
-                    <><Image
+                    <><TouchableOpacity onPress={ secondImageClick }><Image
                     source={require('./secondp.png')}
                     style={styles.logo1} />
+                    </ TouchableOpacity>
                     <TextInput
                         style={(styles.input1)}
                         onChangeText={setText1}
