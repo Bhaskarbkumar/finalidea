@@ -3,7 +3,8 @@ import {Text,View,Image,  Button, StyleSheet, TouchableOpacity,TextInput} from '
 import { useNavigation   } from '@react-navigation/native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Tabs } from "antd";
+import Tabs from "./navigation/tabs";
+//import { Tabs } from "antd";
 
 
 

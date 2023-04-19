@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { auth } from './Firebase/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import SignIn from './SignIn';
 
     //const navigation = useNavigation();
 const Signup = () => {
@@ -57,10 +58,10 @@ const Signup = () => {
         value={Password}
       />
       <View style={{marginVertical: 10}}>
-             <Button  title="REGISTER"  onPress={ signUp}/>
+             <Button  title="REGISTER" onPress={signUp} />
          </View>
         <View style={{marginVertical: 10}}>
-             <Button  title="<GO BACK TO LOGIN" />
+             <Button  title="<GO BACK TO LOGIN" onPress={navigation.navigate(SignIn)}/>
           </View>
 
      </View>

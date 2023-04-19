@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { AntDesign } from '@expo/vector-icons';
+//import { AntDesign } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { TextInput, StyleSheet,Button ,SafeAreaView} from 'react-native';
 import { Image , ScrollView } from 'react-native';

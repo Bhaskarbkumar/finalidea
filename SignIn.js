@@ -46,7 +46,7 @@ const SignIn = () => {
         value={password}
       />
       <View style={{marginVertical: 10}}>
-             <Button  title="LOGIN" onPress= { Profile }  />
+             <Button  title="LOGIN" onPress= { navigation.navigate(signIn) }  />
          </View>
         <View style={{marginVertical: 10}}>
              <Button  title="REGISTER NOW" onPress={ navigation.navigate(Signup)} />

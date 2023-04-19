@@ -14,8 +14,11 @@ const App = () => {
   return (
     <NavigationContainer>
     <Stack.Navigator  >
-      
-        <Stack.Screen name="profile" component={Profile}  style={styles.profil}  options={ {headerShown: false}} />
+        
+        {/* <Stack.Screen name="Signin" component={SignIn}  style={styles.profil}  options={ {headerShown: false}} />
+        <Stack.Screen name="Signup" component={Signup} options={ {headerShown: false}}  /> */}
+     
+         <Stack.Screen name="profile" component={Profile}  style={styles.profil}  options={ {headerShown: false}} />
         <Stack.Screen name="Tabs" component={Tabs} options={ {headerShown: false}}  />
                    
          </Stack.Navigator>
