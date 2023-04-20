@@ -7,19 +7,22 @@ import Tabs from './navigation/tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import NativeStackView from '@react-navigation/native-stack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SearchPage from './navigation/SearchPage';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator  >
+    <Stack.Navigator initialRouteName='Profile'  >
         
         {/* <Stack.Screen name="Signin" component={SignIn}  style={styles.profil}  options={ {headerShown: false}} />
         <Stack.Screen name="Signup" component={Signup} options={ {headerShown: false}}  /> */}
      
-         <Stack.Screen name="profile" component={Profile}  style={styles.profil}  options={ {headerShown: false}} />
-        <Stack.Screen name="Tabs" component={Tabs} options={ {headerShown: false}}  />
+         {/* <Stack.Screen name="profile" component={Profile}  style={styles.profil}  options={ {headerShown: false}} /> */}
+     
+         {/* <Stack.Screen name="Tabs" component={Tabs} options={ {headerShown: false}}  /> */}
+         <Stack.Screen name="search" component={SearchPage} />
                    
          </Stack.Navigator>
  </NavigationContainer>

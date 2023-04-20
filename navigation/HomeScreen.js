@@ -1,19 +1,20 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-//import { AntDesign } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { TextInput, StyleSheet,Button ,SafeAreaView} from 'react-native';
 import { Image , ScrollView } from 'react-native';
 import Novels from './Novels';
-//import { SearchBar } from '@ant-design/react-native';
-//import { Icon } from '@ant-design/react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import HomeIcon from '@mui/icons-material/Home';
+import SearchPage from './SearchPage';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function HomeScreen() {
+
+  const navigation = useNavigation();
 
   const url = "https://www.googleapis.com/books/v1/volumes?q=stephen%20king&download=epub&key=AIzaSyDaSAQ1ggRLaL3YHuTGIvPlFnnH-vDByTo&maxResults=5";
   const url1= "https://www.googleapis.com/books/v1/volumes?q=harrypotter&download=epub&key=AIzaSyDaSAQ1ggRLaL3YHuTGIvPlFnnH-vDByTo&maxResults=5";
@@ -94,11 +95,23 @@ const fetchdata2 = useEffect(()=>{
  
     // Do search functionality here
   };
+
+  function iconClick () {
+    console.log('rahuuu');
+    navigation.navigate( SearchPage);
+   
+}
     
   return (
     <ScrollView>
     <View style={styles.searchContainer}>
-        <MaterialIcons name="search" size = {24} />
+      <TouchableOpacity onPress={() => iconClick()   }>
+        <MaterialIcons 
+        name="search" 
+        size = {40}  
+        />
+        </TouchableOpacity>
+        
      
           <Text style={{marginVertical: 20, fontStyle: 'italic' , fontSize: 15 }}>Stephen king</Text>
          { <ScrollView horizontal={true}>
