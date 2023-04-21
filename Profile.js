@@ -4,6 +4,7 @@ import { useNavigation   } from '@react-navigation/native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Tabs from "./navigation/tabs";
+import SearchPage from "./navigation/SearchPage";
 //import { Tabs } from "antd";
 
 
@@ -30,7 +31,7 @@ const Profile = () => {
 
     const imageClick = () => {
         console.log('david');
-        navigation.navigate( Tabs);
+        navigation.navigate( SearchPage);
     }
 
     const secondImageClick = () => {

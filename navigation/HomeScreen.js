@@ -105,7 +105,7 @@ const fetchdata2 = useEffect(()=>{
   return (
     <ScrollView>
     <View style={styles.searchContainer}>
-      <TouchableOpacity onPress={() => iconClick()   }>
+      <TouchableOpacity onPress={() => iconClick()  }>
         <MaterialIcons 
         name="search" 
         size = {40}  
