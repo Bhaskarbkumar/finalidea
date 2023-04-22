@@ -31,7 +31,7 @@ const Profile = () => {
 
     const imageClick = () => {
         console.log('david');
-        navigation.navigate( SearchPage);
+        navigation.navigate( Tabs);
     }
 
     const secondImageClick = () => {

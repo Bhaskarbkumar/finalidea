@@ -96,16 +96,13 @@ const fetchdata2 = useEffect(()=>{
     // Do search functionality here
   };
 
-  function iconClick () {
-    console.log('rahuuu');
-    navigation.navigate( SearchPage);
-   
-}
+
+    
     
   return (
     <ScrollView>
     <View style={styles.searchContainer}>
-      <TouchableOpacity onPress={() => iconClick()  }>
+      <TouchableOpacity onPress={() => navigation.navigate(SearchPage)  }>
         <MaterialIcons 
         name="search" 
         size = {40}  
