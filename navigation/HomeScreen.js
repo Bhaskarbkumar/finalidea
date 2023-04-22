@@ -115,7 +115,7 @@ const fetchdata2 = useEffect(()=>{
      
           <Text style={{marginVertical: 20, fontStyle: 'italic' , fontSize: 15 }}>Stephen king</Text>
          { <ScrollView horizontal={true}>
-              
+                
            {
             
                 images.map(image => (
